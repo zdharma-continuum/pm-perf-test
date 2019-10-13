@@ -19,9 +19,9 @@ rm -rf **/(_zplug|_zgen|_zplugin)(DN) results/*.txt(DN)
 
 print -P "%F{160}done%f"
 
-print -P "\n%F{160}==========================%f"
-print -P "%F{160}Running installation test…%f"
-print -P "%F{160}==========================%f"
+print -P "\n%F{160}============================%f"
+print -P "%F{160}Measuring installation time…%f"
+print -P "%F{160}============================%f"
 
 for i in zplug zgen zplugin*~*omz; do
     print -P "\n%F{154}=== 3 results for %F{140}$i%F{154}: ===%f"
@@ -37,9 +37,9 @@ for i in zplug zgen zplugin*~*omz; do
     cd -q $__thepwd
 done
 
-print -P "\n%F{160}==========================%f"
-print -P "%F{160}Running startup-time test…%f"
-print -P "%F{160}==========================%f"
+print -P "\n%F{160}============================%f"
+print -P "%F{160}Measuring startup-time time…%f"
+print -P "%F{160}============================%f"
 
 for i in zplug zgen zplugin*~(*omz|*txt); do
     print -P "\n%F{154}=== 10 results for %F{140}$i%F{154}: ===%f"
