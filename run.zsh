@@ -13,7 +13,7 @@ trap "cd $__thepwd; unset __thepwd; return 1" INT
 
 mkdir -p results
 
-print -P "%F{160}Removing previous plugins and results…%f"
+print -P "%F{160}Removing plugins and results from previous test run…%f"
 
 rm -rf **/(_zplug|_zgen|_zplugin)(DN) results/*.txt(DN)
 
