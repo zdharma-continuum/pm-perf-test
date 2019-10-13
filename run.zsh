@@ -28,11 +28,13 @@ for i in zplug zgen zplugin*~*omz; do
 
     cd -q $i
 
-    ZDOTDIR=$PWD zsh -i -c exit |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
+    [[ $i = *turbo ]] && local cmd="-zplg-scheduler burst; exit" || local cmd="exit"
+
+    ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
     rm -rf _(zplug|zgen|zplugin)
-    ZDOTDIR=$PWD zsh -i -c exit |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
+    ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
     rm -rf _(zplug|zgen|zplugin)
-    ZDOTDIR=$PWD zsh -i -c exit |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
+    ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
 
     cd -q $__thepwd
 done
