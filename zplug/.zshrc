@@ -1,13 +1,13 @@
 
-# Start measuring time, in general with microsecond accuracy
-typeset -F4 SECONDS=0
-
 ZPLUG_HOME=$PWD/_zplug
 ZPFX=$ZPLUG_HOME/polaris
 
 if [[ ! -d $ZPLUG_HOME/bin ]]; then
-    git clone https://github.com/zplug/zplug $ZPLUG_HOME/bin
+    git clone --depth 1 https://github.com/zplug/zplug $ZPLUG_HOME/bin
 fi
+
+# Start measuring time, in general with microsecond accuracy
+typeset -F4 SECONDS=0
 
 source $ZPLUG_HOME/bin/init.zsh
 

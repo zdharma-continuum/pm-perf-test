@@ -1,6 +1,3 @@
-# Start measuring time, in general with microsecond accuracy
-typeset -F4 SECONDS=0
-
 typeset -gA ZPLGM
 ZPLGM[HOME_DIR]=$PWD/_zplugin
 ZPFX=${ZPLGM[HOME_DIR]}/polaris
@@ -8,6 +5,9 @@ ZPFX=${ZPLGM[HOME_DIR]}/polaris
 if [[ ! -d ${ZPLGM[HOME_DIR]}/bin ]]; then
     git clone --depth 1 https://github.com/zdharma/zplugin "${ZPLGM[HOME_DIR]}/bin"
 fi
+
+# Start measuring time, in general with microsecond accuracy
+typeset -F4 SECONDS=0
 
 source "${ZPLGM[HOME_DIR]}/bin/zplugin.zsh"
 
