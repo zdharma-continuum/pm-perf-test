@@ -3,6 +3,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 
+def autolabel(rects):
+    for rect in rects:
+        height = rect.get_height()
+        ax.annotate(str(round(float(height), 1)),
+                    xy=(rect.get_x() + rect.get_width() / 2, height),
+                    xytext=(0, 1),
+                    textcoords="offset points",
+                    ha='center', va='bottom')
+
 titles = {
         "results/zplug-inst.txt" : "zplug",
         "results/zgen-inst.txt" : "zgen",
@@ -63,17 +72,21 @@ group_data = list(data.values())
 group_names = list(data.keys())
 
 fig, ax = plt.subplots(figsize=(8.2, 5))
-ax.bar(group_names, group_data)
+rects = ax.bar(group_names, group_data)
 
 # Add a vertical line, here we set the style in the function call
-ax.axhline(mean, ls='--', color='r')
+#ax.axhline(mean, ls='--', color='r')
 
 # Now we'll move our title up since it's getting a little cramped
 ax.title.set(y=1.05)
 
+autolabel(rects)
+
+#fig.tight_layout()
+
 plt.title("Installation time, in seconds")
 
-fig.savefig('plots/installation-times.png', transparent=False, dpi=80, bbox_inches="tight")
+fig.savefig('plots/installation-times.png', transparent=False, dpi=140, bbox_inches="tight")
 
 plt.show()
 
@@ -107,16 +120,20 @@ group_data = list(data.values())
 group_names = list(data.keys())
 
 fig, ax = plt.subplots(figsize=(8.2, 5))
-ax.bar(group_names, group_data)
+rects = ax.bar(group_names, group_data)
+
+autolabel(rects)
+
+#fig.tight_layout()
 
 # Add a vertical line, here we set the style in the function call
-ax.axhline(mean, ls='--', color='r')
+#ax.axhline(mean, ls='--', color='r')
 
 # Now we'll move our title up since it's getting a little cramped
 ax.title.set(y=1.05)
 
 plt.title("Startup time, in milliseconds")
 
-fig.savefig('plots/startup-times.png', transparent=False, dpi=80, bbox_inches="tight")
+fig.savefig('plots/startup-times.png', transparent=False, dpi=140, bbox_inches="tight")
 
 plt.show()
