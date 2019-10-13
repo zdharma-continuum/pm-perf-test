@@ -79,10 +79,8 @@ zplugin light zdharma/zui
 # Gitignore plugin – commands gii and gi
 zplugin light voronkovich/gitignore.plugin.zsh
 
-# Autosuggestions & fast-syntax-highloading
+# Autosuggestions
 zplugin light zsh-users/zsh-autosuggestions
-#zplugin ice lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
-#zplugin light zdharma/fast-syntax-highlighting
 
 # ogham/exa, replacement for ls
 zplugin ice lucid from"gh-r" as"program" mv"exa* -> exa"
@@ -135,5 +133,8 @@ zplugin ice lucid as"program" make"PREFIX=$ZPFX install" \
     pick"$ZPFX/bin/git-quick-stats" \
     atload"export _MENU_THEME=legacy"
 zplugin light arzzen/git-quick-stats.git
+
+autoload compinit
+compinit
 
 print "[zshrc] Zplugin block took ${(M)$(( SECONDS * 1000 ))#*.?} ms"
