@@ -28,7 +28,9 @@ for i in zplug zgen zplugin*~*omz; do
 
     cd -q $i
 
-    [[ $i = *turbo ]] && local cmd="-zplg-scheduler burst; exit" || local cmd="exit"
+    [[ $i = *turbo ]] && \
+        local cmd='-zplg-scheduler burst; print \[zshrc\] Install time: ${(M)$(( SECONDS * 1000 ))#*.?} ms; exit' || \
+        local cmd="exit"
 
     ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
     rm -rf _(zplug|zgen|zplugin)
