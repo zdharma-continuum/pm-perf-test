@@ -24,7 +24,7 @@ run.zsh
 
 ## Drawing the results
 
-To compute average results and draw the plots, run `draw.py` Python script. It
+To compute average results and draw the plots, run `plot.py` Python script. It
 needs `matplotlib` Python package.
 
 ## Details of the test
