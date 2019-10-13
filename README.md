@@ -113,4 +113,19 @@ for Zplugin).
 
 ![Startup times](https://raw.githubusercontent.com/zdharma/pm-perf-test/master/plots/startup-times.png)
 
+## Result comments
+
+The three different Zplugin results needs explaining:
+
+1. Zplugin light – plugins are being loaded without tracking, i.e.: cannot be
+   unloaded and their reports are being empty.
+
+2. Zplugin load – plugins are being loaded with tracking, i.e.: are available for
+   unload and their report data is gathered (available through `zplugin report
+   {plugin-name}` command).
+
+3. Zplugin (Turbo) load – plugins are being loaded with tracking **and in Turbo
+   mode** – i.e.: in background & after prompt – the shell is instantly ready to
+   use.
+
 <!-- vim:set ft=markdown tw=80 autoindent: -->
