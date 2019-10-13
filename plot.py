@@ -47,7 +47,7 @@ for fname in files_inst:
 
     idata=[]
     for line in lines:
-        if fname == "results/zplug-inst.txt":
+        if fname == "results/zplug-inst.txt" or fname == "results/zplugin-turbo-inst.txt":
             odd = 1 - odd
             if not odd:
                 fields = line.split()
