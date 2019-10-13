@@ -1,0 +1,6 @@
+[zshrc] Zplugin block took 1162.7 ms
+[zshrc] Install time: 60073.6 ms
+[zshrc] Zplugin block took 1159.3 ms
+[zshrc] Install time: 64020.0 ms
+[zshrc] Zplugin block took 1161.5 ms
+[zshrc] Install time: 57864.1 ms

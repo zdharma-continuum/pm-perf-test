@@ -1,0 +1,10 @@
+[zshrc] Zplugin block took 266.9 ms
+[zshrc] Zplugin block took 265.2 ms
+[zshrc] Zplugin block took 266.5 ms
+[zshrc] Zplugin block took 252.2 ms
+[zshrc] Zplugin block took 255.4 ms
+[zshrc] Zplugin block took 264.7 ms
+[zshrc] Zplugin block took 255.0 ms
+[zshrc] Zplugin block took 265.7 ms
+[zshrc] Zplugin block took 256.0 ms
+[zshrc] Zplugin block took 255.1 ms
