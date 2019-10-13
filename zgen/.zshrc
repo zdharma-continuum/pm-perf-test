@@ -3,6 +3,8 @@ typeset -F4 SECONDS=0
 
 HOME=$ZDOTDIR
 
+ZGEN_DIR=$HOME/_zgen
+
 compdef() { :; }
 
 if [[ ! -d $HOME/.zgen ]]; then
