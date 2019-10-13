@@ -15,9 +15,7 @@ print -P "%F{160}==========================%f"
 for i in zplug zgen zplugin*; do
     print -P "%F{154}=== Results for %F{130}$i%F{154}: ===%f"
     pushd $i
-    repeat 10 {
-        ZDOTDIR=$PWD zsh -i -c exit |& grep '\[zshrc\]'
-    }
+    ZDOTDIR=$PWD zsh -i -c exit |& grep '\[zshrc\]'
     popd
 done
 
