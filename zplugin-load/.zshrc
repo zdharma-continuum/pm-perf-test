@@ -25,12 +25,12 @@ zplugin load zdharma/zsh-unique-id
 zplugin snippet OMZ::lib/git.zsh
 
 # Loaded mostly to stay in touch with the plugin (for the users)
-zplugin ice lucid atload$'unalias grv g 2>/dev/null'
+zplugin ice atload$'unalias grv g 2>/dev/null'
 zplugin snippet OMZ::plugins/git/git.plugin.zsh
 
 # On OSX, you might need to install coreutils from homebrew and use the
 # g-prefix – gsed, gdircolors
-zplugin ice lucid \
+zplugin ice \
     atclone"local PFX=${${(M)OSTYPE:#*darwin*}:+g}
             git reset --hard; \${PFX}sed -i \
             '/DIR/c\DIR                   38;5;63;1' LS_COLORS; \
@@ -44,13 +44,13 @@ zplugin ice silent as"program" id-as"zconvey-cmd" pick"cmds/zc-bg-notify"
 zplugin load zdharma/zconvey
 
 # fzy
-zplugin ice lucid as"program" make"!PREFIX=$ZPFX install" \
+zplugin ice as"program" make"!PREFIX=$ZPFX install" \
     atclone"cp contrib/fzy-* $ZPFX/bin/" \
     pick"$ZPFX/bin/fzy*"
 zplugin load jhawthorn/fzy
 
 # fzf, for fzf-marks
-zplugin ice lucid from"gh-r" as"program"
+zplugin ice from"gh-r" as"program"
 zplugin load junegunn/fzf-bin
 
 # fzf-marks, at slot 0, for quick Ctrl-G accessibility
@@ -60,7 +60,7 @@ zplugin load urbainvaes/fzf-marks
 zplugin load hlissner/zsh-autopair
 
 # zredis together with some binding/tying
-#zplugin ice lucid atload'ztie -d db/redis -a 127.0.0.1:4815/5 -P $HOME/.zredisconf -zSL main rdhash'
+#zplugin ice atload'ztie -d db/redis -a 127.0.0.1:4815/5 -P $HOME/.zredisconf -zSL main rdhash'
 #zplugin load zdharma/zredis
 
 # zsh-editing-workbench & zsh-navigation-tools
@@ -71,7 +71,6 @@ zplugin load psprint/zsh-navigation-tools   # for n-history
 zplugin load zdharma/history-search-multi-word
 
 # Theme no. 4 – pure
-zplugin ice lucid atload"geometry::prompt"
 zplugin load geometry-zsh/geometry
 
 # ZUI and Crasis
@@ -84,20 +83,20 @@ zplugin load voronkovich/gitignore.plugin.zsh
 zplugin load zsh-users/zsh-autosuggestions
 
 # ogham/exa, replacement for ls
-zplugin ice lucid from"gh-r" as"program" mv"exa* -> exa"
+zplugin ice from"gh-r" as"program" mv"exa* -> exa"
 zplugin load ogham/exa
 
 # vramsteg
-zplugin ice lucid as"program" pick"src/vramsteg" \
+zplugin ice as"program" pick"src/vramsteg" \
             atclone'cmake .' atpull'%atclone' make
 zplugin load psprint/vramsteg-zsh
 
 # revolver
-zplugin ice lucid as"program" pick"revolver"
+zplugin ice as"program" pick"revolver"
 zplugin load psprint/revolver
 
 # zunit
-zplugin ice lucid as"program" pick"zunit" \
+zplugin ice as"program" pick"zunit" \
             atclone"./build.zsh" atpull"%atclone"
 zplugin load psprint/zunit
 
@@ -105,32 +104,32 @@ zplugin load psprint/zunit
 zplugin load zdharma/declare-zshrc
 
 # zsh-diff-so-fancy
-zplugin ice lucid as"program" pick"bin/git-dsf"
+zplugin ice as"program" pick"bin/git-dsf"
 zplugin load zdharma/zsh-diff-so-fancy
 
 # git-now
-zplugin ice lucid as"program" pick"$ZPFX/bin/git-now" make"PREFIX=$ZPFX install"
+zplugin ice as"program" pick"$ZPFX/bin/git-now" make"PREFIX=$ZPFX install"
 zplugin load iwata/git-now
 
 # git-extras
-zplugin ice lucid as"program" pick"$ZPFX/bin/git-alias" make"PREFIX=$ZPFX"
+zplugin ice as"program" pick"$ZPFX/bin/git-alias" make"PREFIX=$ZPFX"
 zplugin load tj/git-extras
 
 # git-cal
-zplugin ice lucid as"program" atclone"perl Makefile.PL PREFIX=$ZPFX" \
+zplugin ice as"program" atclone"perl Makefile.PL PREFIX=$ZPFX" \
     atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
 zplugin load k4rthik/git-cal
 
 # git-url
-zplugin ice lucid as"program" pick"$ZPFX/bin/git-url" make"install PREFIX=$ZPFX GITURL_NO_CGITURL=1"
+zplugin ice as"program" pick"$ZPFX/bin/git-url" make"install PREFIX=$ZPFX GITURL_NO_CGITURL=1"
 zplugin load zdharma/git-url
 
 # git-recall
-zplugin ice lucid as"program" pick"git-recall"
+zplugin ice as"program" pick"git-recall"
 zplugin load Fakerr/git-recall
 
 # git-quick-stats
-zplugin ice lucid as"program" make"PREFIX=$ZPFX install" \
+zplugin ice as"program" make"PREFIX=$ZPFX install" \
     pick"$ZPFX/bin/git-quick-stats" \
     atload"export _MENU_THEME=legacy"
 zplugin load arzzen/git-quick-stats.git
