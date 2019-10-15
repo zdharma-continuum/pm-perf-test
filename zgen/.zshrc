@@ -1,17 +1,17 @@
-# Start measuring time, in general with microsecond accuracy
-typeset -F4 SECONDS=0
-
 HOME=$ZDOTDIR
 
 ZGEN_DIR=$HOME/_zgen
 
 compdef() { :; }
 
-if [[ ! -d $HOME/.zgen ]]; then
-    git clone --depth 1 https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+if [[ ! -d $ZGEN_DIR ]]; then
+    git clone --depth 1 https://github.com/tarjoilija/zgen.git "$ZGEN_DIR"
 fi
 
-source "${HOME}/.zgen/zgen.zsh"
+# Start measuring time, in general with microsecond accuracy
+typeset -F4 SECONDS=0
+
+source "$ZGEN_DIR/zgen.zsh"
 
 # if the init script doesn't exist
 if ! zgen saved; then
