@@ -7,6 +7,7 @@ emulate -L zsh -o extendedglob -o typesetsilent -o rcquotes -o noautopushd
     return 1
 }
 
+integer verbose=${${(M)1:#(-v|--verbose)}:+1}
 typeset -g __thepwd=$PWD
 trap "cd $__thepwd; unset __thepwd" EXIT
 trap "cd $__thepwd; unset __thepwd; return 1" INT
@@ -32,11 +33,20 @@ for i in zplug zgen zplugin*~*omz; do
         local cmd='-zplg-scheduler burst; print \[zshrc\] Install time: ${(M)$(( SECONDS * 1000 ))#*.?} ms; exit' || \
         local cmd="exit"
 
-    ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
-    rm -rf _(zplug|zgen|zplugin)
-    ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
-    rm -rf _(zplug|zgen|zplugin)
-    ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
+    (( verbose )) && {
+        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i.txt) > >(cat)
+        rm -rf _(zplug|zgen|zplugin)
+        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i.txt) > >(cat)
+        rm -rf _(zplug|zgen|zplugin)
+        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i.txt) > >(cat)
+        ((1))
+    } || {
+        ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
+        rm -rf _(zplug|zgen|zplugin)
+        ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
+        rm -rf _(zplug|zgen|zplugin)
+        ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
+    }
 
     cd -q $__thepwd
 done
@@ -57,8 +67,15 @@ for i in zplug zgen zplugin*~(*omz|*txt); do
     }
 
     # The proper test
-    repeat 10 {
-        ZDOTDIR=$PWD zsh -i -c exit |& grep '\[zshrc\]' | tee -a ../results/$i.txt
+    (( verbose )) && {
+        repeat 10 {
+            ZDOTDIR=$PWD zsh -i -c exit 2>&1 > >(grep '\[zshrc\]' >> ../results/$i-inst.txt) > >(cat)
+        }
+        ((1))
+    } || {
+        repeat 10 {
+            ZDOTDIR=$PWD zsh -i -c exit |& grep '\[zshrc\]' | tee -a ../results/$i.txt
+        }
     }
 
     cd -q $__thepwd
