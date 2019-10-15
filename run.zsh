@@ -34,11 +34,11 @@ for i in zplug zgen zplugin*~*omz; do
         local cmd="exit"
 
     (( verbose )) && {
-        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i.txt) > >(cat)
+        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i-inst.txt) > >(cat)
         rm -rf _(zplug|zgen|zplugin)
-        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i.txt) > >(cat)
+        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i-inst.txt) > >(cat)
         rm -rf _(zplug|zgen|zplugin)
-        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i.txt) > >(cat)
+        ZDOTDIR=$PWD zsh -i -c -- $cmd 2>&1 > >(grep '\[zshrc\]' >> ../results/$i-inst.txt) > >(cat)
         ((1))
     } || {
         ZDOTDIR=$PWD zsh -i -c -- $cmd |& grep '\[zshrc\]' | tee -a ../results/$i-inst.txt
@@ -69,7 +69,7 @@ for i in zplug zgen zplugin*~(*omz|*txt); do
     # The proper test
     (( verbose )) && {
         repeat 10 {
-            ZDOTDIR=$PWD zsh -i -c exit 2>&1 > >(grep '\[zshrc\]' >> ../results/$i-inst.txt) > >(cat)
+            ZDOTDIR=$PWD zsh -i -c exit 2>&1 > >(grep '\[zshrc\]' >> ../results/$i.txt) > >(cat)
         }
         ((1))
     } || {
