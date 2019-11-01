@@ -62,7 +62,7 @@ Fakerr/git-recall
 arzzen/git-quick-stats.git
 ```
 
-Some of the plugins are rather regular e.g.: `Makefile`-based projects, like
+Some of the plugins are rather regular `Makefile`-based projects, like
 `arzzen/git-quick-stats.git`. The `atclone''`, `make''`, ice modifiers of
 Zplugin and `hook-build` tag of Zplug allow to install and use them. However
 they're problematic with `zgen`, which doesn't have such hooks. For it, instead
