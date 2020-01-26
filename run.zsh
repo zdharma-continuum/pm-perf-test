@@ -16,6 +16,8 @@ mkdir -p results
 
 print -P "%F{160}Removing plugins and results from previous test run…%f"
 
+print rm -rf **/(_zplug|_zgen|_zinit)(DN) results/*.txt(DN)
+sleep 2
 rm -rf **/(_zplug|_zgen|_zinit)(DN) results/*.txt(DN)
 
 print -P "%F{160}done%f"
