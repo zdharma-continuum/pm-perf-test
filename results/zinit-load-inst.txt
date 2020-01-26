@@ -1,0 +1,3 @@
+[zshrc] Zinit block took 2971.2 ms
+[zshrc] Zinit block took 261.9 ms
+[zshrc] Zinit block took 253.9 ms

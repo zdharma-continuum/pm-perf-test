@@ -1,0 +1,6 @@
+[zshrc] Zinit block took 94.5 ms
+[zshrc] Install time: 2599.2 ms
+[zshrc] Zinit block took 30.7 ms
+[zshrc] Install time: 380.0 ms
+[zshrc] Zinit block took 27.8 ms
+[zshrc] Install time: 359.5 ms

@@ -137,23 +137,3 @@ plt.title("Startup time, in milliseconds")
 fig.savefig('plots/startup-times.png', transparent=False, dpi=140, bbox_inches="tight")
 
 plt.show()
-
-group_data = [ 195 + 159, 288 + 244, 387 + 351, 492 + 498 ]
-group_names = [ "2017", "2018", "2019", "2020" ]
-
-fig, ax = plt.subplots(figsize=(8.2, 5))
-rects = ax.bar(group_names, group_data)
-#ax.plot(group_names, group_data)
-
-autolabel(rects)
-
-#fig.tight_layout()
-
-ax.title.set(y=1.05)
-
-plt.title("Plugins + themes, in a year")
-
-fig.savefig('plots/fsck.png', transparent=False, dpi=100, bbox_inches="tight")
-
-plt.show()
-
