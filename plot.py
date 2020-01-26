@@ -15,31 +15,31 @@ def autolabel(rects):
 titles = {
         "results/zplug-inst.txt" : "zplug",
         "results/zgen-inst.txt" : "zgen",
-        "results/zplugin-light-inst.txt" : "zplugin light",
-        "results/zplugin-load-inst.txt" : "zplugin load",
-        "results/zplugin-turbo-inst.txt" : "zplugin (Turbo) load",
+        "results/zinit-light-inst.txt" : "zinit light",
+        "results/zinit-load-inst.txt" : "zinit load",
+        "results/zinit-turbo-inst.txt" : "zinit (Turbo) load",
 
         "results/zplug.txt" : "zplug",
         "results/zgen.txt" : "zgen",
-        "results/zplugin-light.txt" : "zplugin light",
-        "results/zplugin-load.txt" : "zplugin load",
-        "results/zplugin-turbo.txt" : "zplugin (Turbo) load",
+        "results/zinit-light.txt" : "zinit light",
+        "results/zinit-load.txt" : "zinit load",
+        "results/zinit-turbo.txt" : "zinit (Turbo) load",
 }
 
 files_inst = [
         "results/zplug-inst.txt",
         "results/zgen-inst.txt",
-        "results/zplugin-light-inst.txt",
-        "results/zplugin-load-inst.txt",
-        "results/zplugin-turbo-inst.txt",
+        "results/zinit-light-inst.txt",
+        "results/zinit-load-inst.txt",
+        "results/zinit-turbo-inst.txt",
 ]
 
 files_startup = [
         "results/zplug.txt",
         "results/zgen.txt",
-        "results/zplugin-light.txt",
-        "results/zplugin-load.txt",
-        "results/zplugin-turbo.txt",
+        "results/zinit-light.txt",
+        "results/zinit-load.txt",
+        "results/zinit-turbo.txt",
 ]
 
 #
@@ -56,7 +56,7 @@ for fname in files_inst:
 
     idata=[]
     for line in lines:
-        if fname == "results/zplug-inst.txt" or fname == "results/zplugin-turbo-inst.txt":
+        if fname == "results/zplug-inst.txt" or fname == "results/zinit-turbo-inst.txt":
             odd = 1 - odd
             if not odd:
                 fields = line.split()
@@ -137,3 +137,23 @@ plt.title("Startup time, in milliseconds")
 fig.savefig('plots/startup-times.png', transparent=False, dpi=140, bbox_inches="tight")
 
 plt.show()
+
+group_data = [ 195 + 159, 288 + 244, 387 + 351, 492 + 498 ]
+group_names = [ "2017", "2018", "2019", "2020" ]
+
+fig, ax = plt.subplots(figsize=(8.2, 5))
+rects = ax.bar(group_names, group_data)
+#ax.plot(group_names, group_data)
+
+autolabel(rects)
+
+#fig.tight_layout()
+
+ax.title.set(y=1.05)
+
+plt.title("Plugins + themes, in a year")
+
+fig.savefig('plots/fsck.png', transparent=False, dpi=100, bbox_inches="tight")
+
+plt.show()
+

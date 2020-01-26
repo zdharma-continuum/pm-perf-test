@@ -64,7 +64,7 @@ arzzen/git-quick-stats.git
 
 Some of the plugins are rather regular `Makefile`-based projects, like
 `arzzen/git-quick-stats.git`. The `atclone''`, `make''`, ice modifiers of
-Zplugin and `hook-build` tag of Zplug allow to install and use them. However
+Zinit and `hook-build` tag of Zplug allow to install and use them. However
 they're problematic with `zgen`, which doesn't have such hooks. For it, instead
 an empty plugin [zdharma/null](https://github.com/zdharma/null) is being loaded
 in a following way:
@@ -101,11 +101,11 @@ simplifying the test because of limited `zgen` functionality. Also, `zgen`
 doesn't run the compilation (i.e. `make`) during the installation of the
 plugins.
 
-Zplug and Zplugin tests are rather identical
+Zplug and Zinit tests are rather identical
 ([zshrc](https://github.com/zdharma/pm-perf-test/blob/master/zplug/.zshrc) for
 Zplug,
-[zshrc](https://github.com/zdharma/pm-perf-test/blob/master/zplugin-load/.zshrc)
-for Zplugin).
+[zshrc](https://github.com/zdharma/pm-perf-test/blob/master/zinit-load/.zshrc)
+for Zinit).
 
 ## Results
 
@@ -115,16 +115,16 @@ for Zplugin).
 
 ## Result comments
 
-The three different Zplugin results needs explaining:
+The three different Zinit results needs explaining:
 
-1. Zplugin light – plugins are being loaded without tracking, i.e.: cannot be
+1. Zinit light – plugins are being loaded without tracking, i.e.: cannot be
    unloaded and their reports are being empty.
 
-2. Zplugin load – plugins are being loaded with tracking, i.e.: are available for
-   unload and their report data is gathered (available through `zplugin report
+2. Zinit load – plugins are being loaded with tracking, i.e.: are available for
+   unload and their report data is gathered (available through `zinit report
    {plugin-name}` command).
 
-3. Zplugin (Turbo) load – plugins are being loaded with tracking **and in Turbo
+3. Zinit (Turbo) load – plugins are being loaded with tracking **and in Turbo
    mode** – i.e.: in background & after prompt – the shell is instantly ready to
    use.
 
