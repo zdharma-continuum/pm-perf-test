@@ -3,7 +3,7 @@ ZPLGM[HOME_DIR]=$PWD/_zplugin
 ZPFX=${ZPLGM[HOME_DIR]}/polaris
 
 if [[ ! -d ${ZPLGM[HOME_DIR]}/bin ]]; then
-    git clone --depth 1 https://github.com/zdharma/zplugin "${ZPLGM[HOME_DIR]}/bin"
+    git clone --depth 1 https://github.com/zdharma-continuum/zinit "${ZPLGM[HOME_DIR]}/bin"
 fi
 
 # Start measuring time, in general with microsecond accuracy
